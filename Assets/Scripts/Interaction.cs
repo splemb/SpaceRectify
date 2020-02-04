@@ -23,12 +23,12 @@ public class Interaction : MonoBehaviour
     {
         GetLookingAt();
 
+        lookingAtCount = 0;
+        lookingAtMax = 0;
+
         if (lookingAt.tag == "Interact") {
             lookingAtCount = lookingAt.GetComponent<Broken>().currentMaterials;
             lookingAtMax = lookingAt.GetComponent<Broken>().requiredMaterials;
-        } else {
-            lookingAtCount = 0;
-            lookingAtMax = 0;
         }
 
         if (Input.GetMouseButton(0)) {
@@ -57,8 +57,8 @@ public class Interaction : MonoBehaviour
     private void GetLookingAt()
     {
         RaycastHit hit;
-        Debug.DrawRay(cannonPos.position, cannonPos.forward, Color.white);
-        if (Physics.Raycast(cannonPos.position, cannonPos.forward, out hit, 10))
+        
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 15))
         {
            lookingAt = hit.transform.gameObject;
         } else

@@ -22,10 +22,6 @@ public class ResetBallPos : MonoBehaviour
             other.transform.position = new Vector3(-4, 9, -1);
         }
 
-        if (other.tag == "Player")
-        {
-            other.transform.position = new Vector3(6, 8, -8);
-            Debug.Log("Player has entered the zone");
-        }
+        
     }
 }
