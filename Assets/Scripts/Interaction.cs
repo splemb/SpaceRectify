@@ -9,8 +9,10 @@ public class Interaction : MonoBehaviour
     public GameObject repairParticleBeam;
     public GameObject destroyParticleBeam;
     public Transform cannonPos;
+    public Transform emitterPos;
     public int lookingAtCount = 0;
     public int lookingAtMax = 0;
+    public Vector3 lookingAtPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +24,6 @@ public class Interaction : MonoBehaviour
     void Update()
     {
         GetLookingAt();
-
         lookingAtCount = 0;
         lookingAtMax = 0;
 
@@ -31,7 +32,7 @@ public class Interaction : MonoBehaviour
             lookingAtMax = lookingAt.GetComponent<Broken>().requiredMaterials;
         }
 
-        if (Input.GetMouseButton(0)) {
+        if (Input.GetButton("Fire1")) {
             if (lookingAt.tag == "Interact" && lookingAt.GetComponent<Broken>().broken) {
                 if (materialCount != 0) {
                     MakeBeam(false);
@@ -41,7 +42,8 @@ public class Interaction : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButton(1)) {
+        if (Input.GetButton("Fire2"))
+        {
             if (lookingAt.tag == "Interact"){
                 if (lookingAt.GetComponent<Broken>().currentMaterials != 0) {
                     MakeBeam(true);
@@ -51,16 +53,21 @@ public class Interaction : MonoBehaviour
             }
         }
 
-        Globals.globalMaterialCount = materialCount;
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+           Application.Quit();
+        }
+
+
     }
 
     private void GetLookingAt()
     {
         RaycastHit hit;
-        
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 15))
+        if (Physics.Raycast(emitterPos.position, emitterPos.forward, out hit, 15))
         {
            lookingAt = hit.transform.gameObject;
+           lookingAtPoint = hit.point;
         } else
         {
             lookingAt = null;
@@ -74,7 +81,7 @@ public class Interaction : MonoBehaviour
                 for( int i = 0; i < 5; i++ )
                 {
                     currentStep += step;
-                    Position = Vector3.Lerp(cannonPos.position, lookingAt.transform.position, currentStep);
+                    Position = Vector3.Lerp(cannonPos.position, lookingAtPoint, currentStep);
                     if (destroy) {
                         Instantiate(destroyParticleBeam, Position, Quaternion.identity);
                     } else {

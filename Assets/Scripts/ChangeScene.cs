@@ -21,6 +21,8 @@ public class ChangeScene : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
+            Debug.Log(other.GetComponent<Interaction>().materialCount);
+            Globals.globalMaterialCount = other.GetComponent<Interaction>().materialCount;
             SceneManager.LoadScene(sceneName);
         }
     }

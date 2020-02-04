@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675173076913569713}
-  m_LocalRotation: {x: -0.17686355, y: 0.7597162, z: -0.13065892, w: 0.6119467}
-  m_LocalPosition: {x: 0.013, y: 0, z: 0}
-  m_LocalScale: {x: 50.00008, y: 50, z: 50.00009}
+  m_LocalRotation: {x: -0.30369017, y: 0.6160215, z: -0.27868935, w: 0.6712839}
+  m_LocalPosition: {x: 0.34, y: -0.318, z: 0.74}
+  m_LocalScale: {x: 50.00011, y: 50, z: 50.000122}
   m_Children: []
-  m_Father: {fileID: 7752242171256691174}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -1.028, y: 102.52901, z: -25.386002}
+  m_Father: {fileID: 8826878524743279142}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -3.6910002, y: 86.75001, z: -48.579002}
 --- !u!33 &4782520652950075284
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -102,14 +102,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4738808498272012642}
-  m_LocalRotation: {x: -0.21106435, y: -0.1850835, z: 0.0031803318, w: 0.95978427}
-  m_LocalPosition: {x: 0.244, y: -0.395, z: 0.849}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4541294798631456162}
+  m_Children: []
   m_Father: {fileID: 8826878524743279142}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -23.827002, y: -22.945002, z: 5.2830005}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2547413819630760057
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -333,9 +332,11 @@ MonoBehaviour:
     type: 3}
   destroyParticleBeam: {fileID: 3858521427801067139, guid: 75e5f2b6ff56f614a9ff88b2a9d66ead,
     type: 3}
-  cannonPos: {fileID: 7752242171256691174}
+  cannonPos: {fileID: 4541294798631456162}
+  emitterPos: {fileID: 7752242171256691174}
   lookingAtCount: 0
   lookingAtMax: 0
+  lookingAtPoint: {x: 0, y: 0, z: 0}
 --- !u!54 &8826878524738280804
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -480,6 +481,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7752242171256691174}
+  - {fileID: 4541294798631456162}
   m_Father: {fileID: 8826878524743279140}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -538,7 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b416fbce5a38cc47a3a1e709f95f5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cfuStatus: PSXEffects v1.11.3
+  cfuStatus: PSXEffects v1.11.3 - up to date.
   sections: 01010100
   customRes: {x: 640, y: 480}
   resolutionFactor: 1

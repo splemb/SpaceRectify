@@ -5,7 +5,6 @@ using UnityEngine;
 public class SoundTrigger : MonoBehaviour
 {
     public bool Once;
-    public float Lifetime;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +15,10 @@ public class SoundTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!GetComponent<Collider>().enabled && !GetComponent<AudioSource>().isPlaying)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider other) {
@@ -24,7 +26,6 @@ public class SoundTrigger : MonoBehaviour
             GetComponent<AudioSource>().Play();
             if (Once) {
                 GetComponent<Collider>().enabled = false;
-                Destroy(gameObject,Lifetime);
             }
         }
     }
